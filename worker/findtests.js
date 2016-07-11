@@ -1,7 +1,7 @@
 'use strict';
 
 const
-  Glob = require('Glob').Glob,
+  Glob = require('glob').Glob,
   Mocha = require('mocha'),
   path = require('path'),
   Promise = require('bluebird'),
