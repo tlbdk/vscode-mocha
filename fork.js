@@ -34,7 +34,9 @@ function fork(jsPath, args, options) {
 
 function nodeJSPath() {
   return new Promise((resolve, reject) => {
-    const paths = process.env.path.split(process.platform === 'win32' ? ';' : ':');
+    const pathEnvName = process.platform === 'win32' ? 'path' : 'PATH';
+    const pathEnvSeparator = process.platform === 'win32' ? ';' : ':';
+    const paths = process.env[pathEnvName].split(pathEnvSeparator);
 
     const searchPaths = [].concat(
       paths.map(p => path.resolve(p, 'node')),
